@@ -1,0 +1,139 @@
+/* Overall Layout Using Grid */
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;  /* Header, Main Content, Footer */
+    grid-template-columns: 1fr; /* Single column for layout */
+    height: 100vh;
+}
+
+/* Header (Title and Horizontal Navbar) */
+header {
+    grid-column: 1 / -1;
+    background-color: purple;
+    color: cyan;
+    text-align: center;
+    padding: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Flexbox Navbar */
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    background-color: black;
+    padding: 5px;
+}
+
+.navbar a {
+    color: cyan;
+    text-decoration: none;
+    padding: 14px 16px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: purple;
+}
+
+.active {
+    background-color: #4CAF50; /* Active link background color */
+}
+
+/* Main Content Layout (Grid) */
+.main-content {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Left column with constant width, right column takes remaining space */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Left Column (Vertical Navbar) */
+.left-col {
+    background-color: lightgray;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 300px; /* Fixed width */
+}
+
+.left-col label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.left-col .navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-col .navbar a {
+    color: cyan;
+    background-color: black;
+    padding: 15px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.left-col .navbar a:hover {
+    background-color: purple;
+}
+
+/* Right Column (Image Gallery) */
+.right-col {
+    display: flex, grid;
+    grid-template-columns: repeat(3, 1fr); /* Three items per row */
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Gallery Item */
+.gallery-item {
+    width: 250px;
+    height: 400px;
+    background-color: #f9f9f9;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.gallery-item .title {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.gallery-item .description {
+    margin-top: 10px;
+}
+
+.gallery-item:hover {
+    background-color: darkgrey;
+    border-color: cyan;
+}
+
+/* Footer */
+footer {
+    grid-column: 1 / -1;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
